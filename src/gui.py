@@ -1,11 +1,7 @@
-"""
-Interface Gráfica com Tkinter para visualizar a rota da ambulância
-"""
-
 import tkinter as tk
 from tkinter import ttk, messagebox
 from src.models import Atendimento
-from atrasomax import atraso_maximo_scheduling, calcular_metricas
+from scheduling import atraso_maximo_scheduling, calcular_metricas
 from src.utils import GerenciadorDados
 
 

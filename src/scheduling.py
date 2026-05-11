@@ -1,26 +1,8 @@
-"""
-Algoritmo de Ordenação por Atraso Máximo (Maximum Lateness Scheduling)
-Implementado sem usar bibliotecas externas
-"""
 
 from src.models import Atendimento, Rota
 
 
 def atraso_maximo_scheduling(atendimentos, duracao_trajeto=5):
-    """
-    Algoritmo Greedy que ordena os atendimentos para minimizar o atraso máximo.
-    
-    Estratégia: Ordenar por Shortest Processing Time (SPT)
-    - Atender primeiro os atendimentos mais rápidos
-    - Isso minimiza o atraso máximo
-    
-    Args:
-        atendimentos: Lista de objetos Atendimento
-        duracao_trajeto: Tempo em minutos entre pontos
-    
-    Returns:
-        Rota otimizada com atendimentos ordenados
-    """
     
     if not atendimentos:
         return Rota(duracao_trajeto)
@@ -55,16 +37,6 @@ def atraso_maximo_scheduling(atendimentos, duracao_trajeto=5):
 
 
 def atraso_maximo_com_prazos(atendimentos, duracao_trajeto=5):
-    """
-    Algoritmo de atraso máximo considerando prazos (deadlines) para cada atendimento.
-    
-    Args:
-        atendimentos: Lista de objetos Atendimento
-        duracao_trajeto: Tempo em minutos entre pontos
-    
-    Returns:
-        Rota otimizada
-    """
     
     if not atendimentos:
         return Rota(duracao_trajeto)

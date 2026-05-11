@@ -3,7 +3,7 @@ Pacote src - Sistema de Ambulância Inteligente
 """
 
 from src.models import Atendimento, Rota
-from atrasomax import atraso_maximo_scheduling, calcular_metricas
+from scheduling import atraso_maximo_scheduling, calcular_metricas
 from src.utils import GerenciadorDados, ler_entrada_usuario
 from src.gui import iniciar_gui, AmbulanciaGUI
 

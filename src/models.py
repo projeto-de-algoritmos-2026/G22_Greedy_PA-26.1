@@ -1,7 +1,3 @@
-"""
-Modelos de dados para o sistema de Ambulância Inteligente
-"""
-
 class Atendimento:
     """Representa um atendimento médico"""
     
