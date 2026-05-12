@@ -1,0 +1,52 @@
+{
+  "atendimentos": [
+    {
+      "id": 1,
+      "descricao": "Curativo",
+      "duracao": 5,
+      "momento_chamado": 0,
+      "tempo_conclusao": 5,
+      "atraso": 0,
+      "ordem_atendimento": 1
+    },
+    {
+      "id": 4,
+      "descricao": "Dor de cabeça",
+      "duracao": 8,
+      "momento_chamado": 3,
+      "tempo_conclusao": 18,
+      "atraso": 7,
+      "ordem_atendimento": 2
+    },
+    {
+      "id": 2,
+      "descricao": "Febre",
+      "duracao": 10,
+      "momento_chamado": 1,
+      "tempo_conclusao": 33,
+      "atraso": 22,
+      "ordem_atendimento": 3
+    },
+    {
+      "id": 5,
+      "descricao": "Pressão alta",
+      "duracao": 12,
+      "momento_chamado": 5,
+      "tempo_conclusao": 50,
+      "atraso": 33,
+      "ordem_atendimento": 4
+    },
+    {
+      "id": 3,
+      "descricao": "Acidente grave",
+      "duracao": 40,
+      "momento_chamado": 2,
+      "tempo_conclusao": 95,
+      "atraso": 53,
+      "ordem_atendimento": 5
+    }
+  ],
+  "tempo_total": 95,
+  "duracao_trajeto": 5,
+  "atraso_maximo": 53
+}

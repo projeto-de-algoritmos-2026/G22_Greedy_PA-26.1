@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "descricao": "Curativo",
+    "duracao": 5,
+    "momento_chamado": 0
+  },
+  {
+    "id": 2,
+    "descricao": "Febre",
+    "duracao": 10,
+    "momento_chamado": 1
+  },
+  {
+    "id": 3,
+    "descricao": "Acidente grave",
+    "duracao": 40,
+    "momento_chamado": 2
+  },
+  {
+    "id": 4,
+    "descricao": "Dor de cabeça",
+    "duracao": 8,
+    "momento_chamado": 3
+  },
+  {
+    "id": 5,
+    "descricao": "Pressão alta",
+    "duracao": 12,
+    "momento_chamado": 5
+  }
+]
