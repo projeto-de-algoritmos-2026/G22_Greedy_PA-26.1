@@ -1,52 +1,171 @@
-# G22_Greedy_PA-26.1
+# Ambulância Inteligente 
 
-Projeto que implementa um algoritmo guloso para ordenar atendimento de pacientes
-de modo a minimizar o atraso máximo.
+Número da Lista: 22<br>
+Conteúdo da Disciplina: Algoritmos de Ordenação<br>
 
-Como executar
+## Alunos
 
-- Requisitos: Python 3.8+ (nenhuma dependência externa obrigatória para rodar o programa)
-- A partir da raiz do repositório:
+| Matrícula | Aluno                            |
+| --------- | -------------------------------- |
+| 211061903 | Isaque Santos                    |
+| 200023985 | Maria Eduarda dos Santos Marques |
+
+---
+
+## Sobre
+
+Este projeto tem como objetivo simular um sistema inteligente de gerenciamento de atendimentos realizados por uma ambulância, buscando otimizar a ordem de execução dos chamados para minimizar o **atraso máximo** entre os atendimentos.
+
+O sistema foi desenvolvido utilizando conceitos de ordenação, aplicando o algoritmo de **Atraso Máximo (Maximum Lateness Scheduling)** para definir a melhor sequência de atendimentos.
+
+O problema considera:
+
+- Chamados médicos com diferentes durações
+- Tempo de deslocamento entre atendimentos
+- Controle de atrasos
+- Cálculo de métricas de desempenho
+
+A solução foi construída utilizando:
+
+- Estruturas de dados orientadas a objetos
+- Algoritmos de ordenação implementados manualmente
+- Interface gráfica com Tkinter
+- Persistência de dados em JSON
+
+O sistema funciona organizando os atendimentos em uma rota otimizada, onde:
+
+- Cada atendimento possui informações como descrição, duração e momento do chamado
+- A ambulância executa os atendimentos em sequência
+- O sistema calcula o tempo de conclusão e o atraso de cada atendimento
+- O algoritmo busca reduzir o maior atraso existente na rota
+
+---
+
+## Funcionalidades
+
+- Adicionar atendimentos pela interface gráfica
+- Ajustar tempo de trajeto entre pontos
+- Carregar atendimentos de exemplo
+- Executar otimização da rota
+- Visualizar tempos de conclusão
+- Calcular atrasos automaticamente
+- Exibir métricas de desempenho
+- Exportar rota otimizada para JSON
+
+---
+
+## Algoritmo Utilizado
+
+O projeto utiliza o algoritmo de **Atraso Máximo**, cujo objetivo é minimizar o maior atraso entre todos os atendimentos realizados.
+
+O cálculo considera:
+
+```text
+atraso = tempo_conclusao - prazo
+```
+
+Onde:
+
+```text
+prazo = momento_chamado + duracao
+```
+
+O sistema ordena os atendimentos buscando reduzir o impacto dos atrasos e melhorar o tempo geral de resposta da ambulância.
+
+---
+ 
+## Screenshots
+
+# Tela inicial
+![Tela Inicial](./assets/tela_inicial.png)
+
+# Tela de 
+![Cadastro](./assets/cadastro.png)
+
+# Tela de 
+![Otimização](./assets/otimizacao.png)
+
+# Tela de 
+![Resultados](./assets/resultados.png)
+
+---
+
+## Vídeo do trabalho
+
+[Clique aqui para assistir à demonstração](https://youtube.com/)
+
+---
+
+## Instalação
+
+Linguagem: Python<br>
+
+### Pré-requisitos
+
+- Python 3.8 ou superior
+- Tkinter instalado
+
+---
+
+## Passos para execução
+
+Para executar o projeto:
 
 ```bash
-python3 src/main.py
+cd G22_Greedy_PA-26.1 
 ```
-
-Opções úteis:
-
-- Rodar com exemplo embutido:
 
 ```bash
-python3 src/main.py --example
+python main.py
 ```
-
-- Ler pacientes de um arquivo JSON (lista de objetos com campos "nome", "tempo", "prazo"):
+ou
 
 ```bash
-python3 src/main.py --file dados.json
+python run_gui.py
 ```
 
-Exemplo de `dados.json`:
+---
 
-```json
-[
-  {"nome": "Ana", "tempo": 30, "prazo": 60},
-  {"nome": "Beto", "tempo": 20, "prazo": 40}
-]
-```
+## Passo a passo
 
-Testes
+1. O usuário adiciona os atendimentos informando:
+   - ID
+   - Descrição
+   - Duração
+   - Momento do chamado
 
-Instale as dependências de desenvolvimento e rode os testes com pytest:
+2. O sistema permite configurar:
+   - Tempo de trajeto entre atendimentos
 
-```bash
-python3 -m pip install -r requirements.txt
-pytest -q
-```
+3. Ao executar a otimização:
+   - Os atendimentos são ordenados
+   - A rota é calculada
+   - Tempos de conclusão são gerados
+   - Atrasos são identificados
 
-Melhorias incluídas
+4. O resultado é exibido com:
+   - Ordem otimizada da rota
+   - Tempo total
+   - Atraso máximo
+   - Atraso médio
+   - Soma total dos atrasos
+   - Status de cada atendimento:
+     - NO PRAZO
+     - ATRASADO
 
-- Validações de entradas interativas e de arquivo JSON
-- Suporte a modo não interativo (`--no-interactive`)
-- Testes unitários básicos para `algoritmo.py`
-# G22_Greedy_PA-26.1
+---
+
+## Outros
+
+### Organização do Projeto
+
+O projeto foi dividido em módulos para melhor organização:
+
+- `main.py` → inicia a interface gráfica  
+- `run_gui.py` → execução alternativa da GUI  
+- `src/models.py` → definição das classes `Atendimento` e `Rota`  
+- `src/scheduling.py` → algoritmo de atraso máximo e cálculo de métricas  
+- `src/gui.py` → interface gráfica em Tkinter  
+- `src/utils.py` → leitura e gravação de arquivos JSON  
+
+---
