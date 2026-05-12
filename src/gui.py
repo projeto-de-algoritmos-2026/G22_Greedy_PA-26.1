@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-from src.models import Atendimento
-from scheduling import atraso_maximo_scheduling, calcular_metricas
-from src.utils import GerenciadorDados
+from .models import Atendimento
+from .scheduling import atraso_maximo_scheduling, calcular_metricas
+from .utils import GerenciadorDados
 
 
 class DialogoNovoAtendimento(tk.Toplevel):

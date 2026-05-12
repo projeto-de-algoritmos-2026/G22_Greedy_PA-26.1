@@ -79,14 +79,14 @@ O sistema ordena os atendimentos buscando reduzir o impacto dos atrasos e melhor
 # Tela inicial
 ![Tela Inicial](./assets/tela_inicial.png)
 
-# Tela de 
-![Cadastro](./assets/cadastro.png)
+# Tela de Novo Atendimento
+![Cadastro](./assets/novo_atendimento.png)
 
-# Tela de 
-![Otimização](./assets/otimizacao.png)
+# Tela de Otimizar Rota 
+![Otimização](./assets/otimizar_rota.png)
 
-# Tela de 
-![Resultados](./assets/resultados.png)
+# Tela de Métricas e Análise
+![Resultados](./assets/analise.png)
 
 ---
 

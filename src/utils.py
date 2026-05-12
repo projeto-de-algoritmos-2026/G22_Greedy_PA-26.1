@@ -4,7 +4,11 @@ Utilitários para entrada/saída de dados
 
 import json
 import os
+from pathlib import Path
 from src.models import Atendimento, Rota
+
+# Base do projeto (pasta acima de src)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class GerenciadorDados:
@@ -24,14 +28,18 @@ class GerenciadorDados:
             Lista de objetos Atendimento
         """
         if caminho_arquivo is None:
-            caminho_arquivo = GerenciadorDados.ARQUIVO_PADRAO
-        
-        if not os.path.exists(caminho_arquivo):
-            print(f"Arquivo {caminho_arquivo} não encontrado.")
+            caminho = BASE_DIR / GerenciadorDados.ARQUIVO_PADRAO
+        else:
+            caminho = Path(caminho_arquivo)
+            if not caminho.is_absolute():
+                caminho = BASE_DIR / caminho_arquivo
+
+        if not caminho.exists():
+            print(f"Arquivo {caminho} não encontrado.")
             return []
-        
+
         try:
-            with open(caminho_arquivo, 'r', encoding='utf-8') as f:
+            with open(caminho, 'r', encoding='utf-8') as f:
                 dados = json.load(f)
             
             atendimentos = []
@@ -53,13 +61,17 @@ class GerenciadorDados:
             caminho_arquivo: Caminho do arquivo (usa padrão se None)
         """
         if caminho_arquivo is None:
-            caminho_arquivo = GerenciadorDados.ARQUIVO_PADRAO
-        
+            caminho = BASE_DIR / GerenciadorDados.ARQUIVO_PADRAO
+        else:
+            caminho = Path(caminho_arquivo)
+            if not caminho.is_absolute():
+                caminho = BASE_DIR / caminho_arquivo
+
         try:
             dados = [a.to_dict() for a in atendimentos]
-            with open(caminho_arquivo, 'w', encoding='utf-8') as f:
+            with open(caminho, 'w', encoding='utf-8') as f:
                 json.dump(dados, f, indent=2, ensure_ascii=False)
-            print(f"Dados salvos em {caminho_arquivo}")
+            print(f"Dados salvos em {caminho}")
         except Exception as e:
             print(f"Erro ao salvar arquivo: {e}")
     
@@ -72,11 +84,15 @@ class GerenciadorDados:
             rota: Objeto Rota
             caminho_arquivo: Caminho do arquivo
         """
+        caminho = Path(caminho_arquivo)
+        if not caminho.is_absolute():
+            caminho = BASE_DIR / caminho_arquivo
+
         try:
             dados = rota.to_dict()
-            with open(caminho_arquivo, 'w', encoding='utf-8') as f:
+            with open(caminho, 'w', encoding='utf-8') as f:
                 json.dump(dados, f, indent=2, ensure_ascii=False)
-            print(f"Rota salva em {caminho_arquivo}")
+            print(f"Rota salva em {caminho}")
         except Exception as e:
             print(f"Erro ao salvar rota: {e}")
     
@@ -116,9 +132,25 @@ class GerenciadorDados:
             }
         ]
 
-        with open ("atendimentos_exemplo.json", 'w', encoding='utf-8') as f:
-            json.dump(exemplo, f, indent=2, ensure_ascii=False)
-        print("Arquivo de exemplo criado: atendimentos_exemplo.json")
+        caminho = BASE_DIR / "atendimentos_exemplo.json"
+
+        if caminho.exists():
+            print(f"Arquivo de exemplo já existe: {caminho}")
+            try:
+                with open(caminho, 'r', encoding='utf-8') as f:
+                    dados = json.load(f)
+                return dados
+            except Exception:
+                print("Aviso: não foi possível ler o arquivo existente; retornando exemplo em memória.")
+                return exemplo
+
+        try:
+            with open(caminho, 'w', encoding='utf-8') as f:
+                json.dump(exemplo, f, indent=2, ensure_ascii=False)
+            print(f"Arquivo de exemplo criado: {caminho}")
+        except PermissionError:
+            print(f"Permissão negada ao criar {caminho}; usando exemplo em memória.")
+
         return exemplo
 
 
