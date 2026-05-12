@@ -92,7 +92,7 @@ O sistema ordena os atendimentos buscando reduzir o impacto dos atrasos e melhor
 
 ## Vídeo do trabalho
 
-[Clique aqui para assistir à demonstração](https://youtube.com/)
+[Clique aqui para assistir à demonstração](https://youtu.be/wj6ZPyVY6Hk)
 
 ---
 
